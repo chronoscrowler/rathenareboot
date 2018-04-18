@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.38, for Win32 (AMD64)
 --
--- Host: localhost    Database: rathena_RENEWAL_log
+-- Host: localhost    Database: rathena_PRERE_log
 -- ------------------------------------------------------
 -- Server version	5.6.38
 
@@ -42,7 +42,7 @@ CREATE TABLE `atcommandlog` (
 
 LOCK TABLES `atcommandlog` WRITE;
 /*!40000 ALTER TABLE `atcommandlog` DISABLE KEYS */;
-INSERT INTO `atcommandlog` VALUES (1,'2018-04-18 10:59:49',2000000,150000,'AdminUser','prontera','@go 0');
+INSERT INTO `atcommandlog` VALUES (1,'2018-04-18 12:35:28',2000000,150000,'AdminUserPRE','prontera','@go 0');
 /*!40000 ALTER TABLE `atcommandlog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,7 +193,7 @@ CREATE TABLE `loginlog` (
 
 LOCK TABLES `loginlog` WRITE;
 /*!40000 ALTER TABLE `loginlog` DISABLE KEYS */;
-INSERT INTO `loginlog` VALUES ('2018-04-18 10:55:43','0.0.0.0','login server',100,'login server started'),('2018-04-18 10:55:44','127.0.0.1','s1changemeplease',100,'charserver - rAthena_RENEWAL_201@192.168.0.100:6121'),('2018-04-18 10:56:48','0.0.0.0','login server',100,'login server started'),('2018-04-18 10:56:49','127.0.0.1','s1changemeplease',100,'charserver - rAthena_RENEWAL_201@192.168.0.100:6121'),('2018-04-18 10:57:28','0.0.0.0','login server',100,'login server started'),('2018-04-18 10:57:29','127.0.0.1','s1changemeplease',100,'charserver - rAthena_RENEWAL_201@192.168.0.100:6121'),('2018-04-18 10:58:13','127.0.0.1','admin',100,'login ok'),('2018-04-18 10:59:39','127.0.0.1','admin',1,'Incorrect Password.'),('2018-04-18 10:59:41','127.0.0.1','admin',100,'login ok'),('2018-04-18 11:03:30','127.0.0.1','admin',1,'Incorrect Password.'),('2018-04-18 11:03:34','127.0.0.1','admin',100,'login ok'),('2018-04-18 11:04:23','127.0.0.1','player',100,'login ok'),('2018-04-18 11:04:44','127.0.0.1','player2',100,'login ok');
+INSERT INTO `loginlog` VALUES ('2018-04-18 12:31:17','0.0.0.0','login server',100,'login server started'),('2018-04-18 12:31:18','127.0.0.1','s1changemeplease',100,'charserver - rAthena_RENEWAL_201@10.8.0.2:6121'),('2018-04-18 12:32:08','0.0.0.0','login server',100,'login server started'),('2018-04-18 12:32:10','127.0.0.1','s1changemeplease',100,'charserver - rAthena_RENEWAL_201@10.8.0.2:6121'),('2018-04-18 12:33:47','127.0.0.1','admin',100,'login ok'),('2018-04-18 12:34:07','127.0.0.1','player',100,'login ok'),('2018-04-18 12:34:24','127.0.0.1','player2',100,'login ok'),('2018-04-18 12:35:25','127.0.0.1','admin',100,'login ok');
 /*!40000 ALTER TABLE `loginlog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,4 +344,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-18 11:05:37
+-- Dump completed on 2018-04-18 12:36:28

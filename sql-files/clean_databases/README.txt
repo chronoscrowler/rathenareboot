@@ -4,10 +4,10 @@ Main purpose of these files, for next case:
 - you wish to trace some issue
 
 What need to do?
-- Delete your rathena_RENEWAL_db, and rathena_RENEWAL_log
+- Delete your rathena_PRERE_db, and rathena_PRERE_log
 - Import with phpmyadmin or console these database:
-	1. mysql -uroot rathena_RENEWAL_db < rathena_RENEWAL_db.sql
-	2. mysql -uroot rathena_RENEWAL_log < rathena_RENEWAL_log.sql
+	1. mysql -uroot rathena_PRERE_db < rathena_PRERE_db.sql
+	2. mysql -uroot rathena_PRERE_log < rathena_PRERE_log.sql
 
 
 These database files generated from 18 April 2018
