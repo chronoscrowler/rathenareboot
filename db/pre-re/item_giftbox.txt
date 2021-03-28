@@ -627,3 +627,4 @@ IG_GiftBoxChina,5015,2	// Egg Shell
 IG_OldGiftBox,5270,45	// Happy Wig
 IG_OldGiftBox,5271,15	// Phoenix Crown
 IG_OldGiftBox,5272,40	// Smiling Mask
+
