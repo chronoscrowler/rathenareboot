@@ -429,3 +429,11 @@ nyd_dun02	mapflag	noteleport
 2012rwc_08	mapflag	noteleport
 
 //evt_zombie	mapflag	noteleport
+1@dth1	mapflag	noteleport
+1@dth2	mapflag	noteleport
+moonhaven	mapflag	noteleport
+dicastes01	mapflag	noteleport
+eden_fild01	mapflag	noteleport
+eden_fild02	mapflag	noteleport
+eden_fild03	mapflag	noteleport
+ecl_fild01	mapflag	noteleport
