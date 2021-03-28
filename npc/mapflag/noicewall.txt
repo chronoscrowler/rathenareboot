@@ -142,3 +142,7 @@ nguild_prt	mapflag	noicewall
 // Poring War ====================
 poring_w01	mapflag	noicewall
 poring_w02	mapflag	noicewall
+
+//
+1@dth3	mapflag	noicewall
+tur_dun06	mapflag	noicewall
