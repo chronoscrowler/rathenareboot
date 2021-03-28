@@ -74,7 +74,7 @@
 7430,499,100	// Black Charm Stone
 
 // Chinese New Year
-7484,507,100	// Symbol of a Brave Warrior
+//7484,507,100	// Symbol of a Brave Warrior
 7485,507,100	// Cloud General
 7486,507,100	// Wind General
 
@@ -181,7 +181,7 @@
 7579,499,100	// Silk Handkerchief of Zhi Nu
 
 // Taiwan 4th Anniversary Memorial items
-7583,499,100	// Evil Mind
+//7583,499,100	// Evil Mind
 7584,499,100	// Guard's First Proof
 7585,499,100	// Guard's Second Proof
 7586,499,100	// Guard's Third Proof
@@ -452,7 +452,7 @@
 7950,499,100	// Ayothaya Fest Ticket
 
 // Episode 13.1
-6039,507,100	// Piece of Fish
+//6039,507,100	// Piece of Fish
 6048,507,100	// Unidentified Mineral
 6051,499,100	// Gray Hollow
 
@@ -614,7 +614,7 @@
 1173,507,100	// Muramasa
 1190,507,100	// Claymore
 1267,507,100	// Infiltrator
-1283,507,100	// Katar Of Speed
+//1283,507,100	// Katar Of Speed
 1286,507,100	// Jamadhar
 1312,507,100	// Orcish Axe
 1372,507,100	// Light Epsilon
@@ -1002,8 +1002,8 @@
 13886,475,100	// Silence Card Box
 13887,475,100	// Blind Card Box
 13888,475,100	// Chaos Card Box
-13889,475,100	// Elunium Box
-13890,475,100	// Oridecon Box
+//13889,475,100	// Elunium Box
+//13890,475,100	// Oridecon Box
 13891,475,100	// Fire Converter Box
 13892,475,100	// Water Converter Box
 13893,475,100	// Wind Converter Box
@@ -1790,3 +1790,7 @@
 5819,507,100	// Carnival Circlet
 5821,507,100	// Gold Tulip Hairpin
 5822,499,100	// Love Chick Hat
+//
+1599,511,100
+2199,511,100
+
