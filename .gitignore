@@ -124,3 +124,7 @@ Thumbs.db
 /libmysql.dll
 /pcre8.dll
 /zlib.dll
+
+
+# Ignore .vscode files
+.vscode/*
