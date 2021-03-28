@@ -491,6 +491,12 @@ geffen,90,67,3	script	Promotional Staff#gef	100,{
 		next;
 		mes "[Promotional Staff]";
 		mes "Next step is Izlude!";
+		next;
+		mes "[Promotional Staff]";
+		mes "...although Izlude is no more...";
+		mes "I believe our colleague is safe somewhere inside one of Prontera's buildings.";
+		next;
+		mes "[Promotional Staff]";
 		mes "You can get tested by the Promotional Staff there.";
 		mes "Hurry up!";
 		next;
@@ -5951,7 +5957,7 @@ mid_camp,165,245,0	script	Ryosen#ep131_rhea01	748,{
 			mes "I heard you can get this thing from a monster named, 'Cornus' found in the fields.";
 			next;
 			mes "[Ryosen]";
-			mes "Or... do you have any ^0000ffMystic Horns^000000 with you? Of course, I'm not saying that I want it for free. If you'd give me ^0000ff2 Mystic Horns^000000, I'd give you my Rune-Midgart's Strawberry Cake.";
+			mes "Or... do you have any ^0000ffMystic Horns^000000 with you? Of course, I'm not saying that I want it for free. If you'd give me ^0000ff50 Mystic Horns^000000, I'd give you my Rune-Midgart's Strawberry Cake.";
 			next;
 			switch(select("I haven't seen such a thing.:Oh, ok, I'll give you!")) {
 			case 1:
@@ -5959,10 +5965,10 @@ mid_camp,165,245,0	script	Ryosen#ep131_rhea01	748,{
 				mes "Mmmmmmm~";
 				next;
 				mes "[Ryosen]";
-				mes "If by any chance you find one, please come back to me.";
+				mes "If by any chance you find at least five, please come back to me.";
 				close;
 			case 2:
-				if (countitem(12319) > 4) {
+				if (countitem(12319) > 29999) {
 					mes "[Ryosen]";
 					mes "Huh?";
 					next;
@@ -5982,7 +5988,7 @@ mid_camp,165,245,0	script	Ryosen#ep131_rhea01	748,{
 			mes "[Ryosen]";
 			mes "... Haha, I'm joking...";
 			next;
-			if (countitem(6023) > 1) {
+			if (countitem(6023) > 49) {
 				mes "[Ryosen]";
 				mes "Are you really, honestly, positively sure you want to exchange them for my cake?";
 				next;
@@ -6000,8 +6006,8 @@ mid_camp,165,245,0	script	Ryosen#ep131_rhea01	748,{
 				next;
 				mes "[Ryosen]";
 				mes "I heard you could extract some magical energy form Mystic Horns and use it. Anyway, thank you!";
-				delitem 6023,2; //Mystic_Horn
-				getitem 12319,1; //Strawberry_Cake
+				delitem 6023,50; //Mystic_Horn
+				getitem 12319,5; //Strawberry_Cake
 				close;
 			}
 			else {
@@ -6348,7 +6354,7 @@ mid_camp,247,255,1	script	Hue#ep131_rhea02	868,{
 			next;
 			mes "[Hue]";
 			mes "Could you bring ^0000ffFur^000000 if you get some? I'm not asking it for free.";
-			mes "I'll give you my Pineapple Jubilee from Schwartzvalt, if you bring me ^0000ff2 Furs^000000.";
+			mes "I'll give you my Pineapple Jubilee from Schwartzvalt, if you bring me ^0000ff50 Furs^000000.";
 			next;
 			switch(select("I don't have any, right now.:Oh, I'll give you Fur.")) {
 			case 1:
@@ -6359,7 +6365,7 @@ mid_camp,247,255,1	script	Hue#ep131_rhea02	868,{
 				mes "Please give me some when you get some.";
 				close;
 			case 2:
-				if (countitem(12320) > 4) {
+				if (countitem(12320) > 29999) {
 					mes "[Hue]";
 					mes "Ah, oh my.";
 					next;
@@ -6375,7 +6381,7 @@ mid_camp,247,255,1	script	Hue#ep131_rhea02	868,{
 			mes "[Hue]";
 			mes "Ah, are you sure you want to exchange?";
 			next;
-			if (countitem(6020) > 1) {
+			if (countitem(6020) > 49) {
 				mes "[Hue]";
 				mes "Oh, so it's the thing called, Fur??";
 				next;
@@ -6395,8 +6401,8 @@ mid_camp,247,255,1	script	Hue#ep131_rhea02	868,{
 				next;
 				mes "[Hue]";
 				mes "I always needed this because the weather here is colder then I expected. I'm sure this will keep me warm.";
-				delitem 6020,2; //Fur
-				getitem 12320,1; //Pineapple_Juice
+				delitem 6020,50; //Fur
+				getitem 12320,5; //Pineapple_Juice
 				close;
 			}
 			else {
@@ -6811,7 +6817,7 @@ mid_camp,222,218,3	script	Hansenne#ep131_rhea03	931,{
 			next;
 			mes "[Hansenne]";
 			mes "Can you give me a ^0000ffPeaked Hat^000000 if you have any? I'm not asking for free.";
-			mes "For ^0000ff2 Peaked Hats^000000, I'll give you my special dessert!";
+			mes "For ^0000ff50 Peaked Hats^000000, I'll give you my special dessert!";
 			next;
 			switch(select("No way.:Sure.")) {
 			case 1:
@@ -6823,7 +6829,7 @@ mid_camp,222,218,3	script	Hansenne#ep131_rhea03	931,{
 				mes "Haha, hahaha, hahahahahahahahaha.";
 				close;
 			case 2:
-				if (countitem(12321) > 4) {
+				if (countitem(12321) > 29999) {
 					mes "[Hansenne]";
 					mes "... Huh?";
 					next;
@@ -6840,7 +6846,7 @@ mid_camp,222,218,3	script	Hansenne#ep131_rhea03	931,{
 			mes "[Hansenne]";
 			mes "Ah!!! You have it?";
 			next;
-			if (countitem(6021) > 1) {
+			if (countitem(6021) > 49) {
 				mes "[Hansenne]";
 				mes "Oh, you really have those!";
 				next;
@@ -6861,8 +6867,8 @@ mid_camp,222,218,3	script	Hansenne#ep131_rhea03	931,{
 				mes "Ehhmmm, thank you!";
 				mes "Geeeee, thank you!";
 				mes "Haha, hahaha, hahahahahahahahaha.";
-				delitem 6021,2; //Peaked_Hat
-				getitem 12321,1; //Spicy_Sandwich
+				delitem 6021,50; //Peaked_Hat
+				getitem 12321,5; //Spicy_Sandwich
 				close;
 			}
 			else {
