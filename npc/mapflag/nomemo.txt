@@ -713,3 +713,18 @@ bossnia_04	mapflag	nomemo
 2012rwc_06	mapflag	nomemo
 2012rwc_07	mapflag	nomemo
 2012rwc_08	mapflag	nomemo
+//
+1@ecl	mapflag	nomemo
+moonhaven	mapflag	nomemo
+jupe_area2	mapflag	nomemo
+dali02	mapflag	nomemo
+lhz_dun04	mapflag	nomemo
+dicastes02	mapflag	nomemo
+ma_dun01	mapflag	nomemo
+dicastes01	mapflag	nomemo
+dic_fild01	mapflag	nomemo
+dic_fild02	mapflag	nomemo
+eden_fild01	mapflag	nomemo
+eden_fild02	mapflag	nomemo
+eden_fild03	mapflag	nomemo
+ecl_fild01	mapflag	nomemo
