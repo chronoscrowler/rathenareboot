@@ -1051,3 +1051,19 @@ star_in
 //======================================================================================
 // - Other/Extra maps -
 //======================================================================================
+moonhaven 1250
+chry_fld
+aev_fild
+plazuda
+bizen01
+bizen02
+final_dest
+airflugel
+geffenia
+geffenia_in
+abyss_04
+1@vp
+eden_fild01
+eden_fild02
+eden_fild03
+iz_boom
