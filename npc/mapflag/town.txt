@@ -34,3 +34,5 @@ louyang	mapflag	town
 hugel	mapflag	town
 rachel	mapflag	town
 veins	mapflag	town
+moonhaven	mapflag	town
+dicastes01	mapflag	town
