@@ -42,3 +42,34 @@
 // iRO Halloween Event 2009
 //3014,1179,0
 //3015,1272,0
+
+//Battle of Immortals Instance
+2222,1813	// NetoHom
+2060,1813	// NetoHom
+2004,1814	// Dummy ReDGuRL
+
+//Multiversal Disaster Instance
+3466,1002	//Abnormal Poring
+
+//Uber Faction Bosses
+2000,4073,1,21,1,1599,2199,1117,3010,8000,0,35	// Jeff Saber
+2003,4073,0,12,22,1599,2199,1352,3010,8000,0,2	// Tamari Stuart
+2001,4061,0,5,6,40009,40038,468,3010,8001,0,22	// ReDGuRL
+2083,4061,1,1,1,40029,40038,468,3010,8001,0,5	// Tomoyo Okazaki
+2063,4074,1,2,3,40049,40058,3001,3010,8002,0,4	// Flugel Bloodpledge
+2064,4078,0,4,6,40047,40058,3001,3010,8002,0,22	// Yuwee
+1996,3457	// Arcturus Mobs
+2079,3461	// Amon
+2067,3461	// Amon's Shadow
+
+//Endgame Crysta Holder
+2080,2365	// Netoria Endgame Crysta Holder
+
+//Hololive Easter Egg Quest
+2056,3222	//Haachama
+2075,2131	//Kaichou
+1022,1879	//Pekoland Noble
+2029,1919	//Anti
+
+//Damage Test
+2012,1288	Dummy Emperium

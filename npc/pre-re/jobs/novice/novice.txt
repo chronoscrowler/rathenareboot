@@ -134,28 +134,28 @@ new_1-2,100,29,4	script	Receptionist#nv1	86,{
 			set nov_3_merchant,0;
 			switch(rand(6)) {
 			case 0:
-				savepoint "prontera",273,354,1,1;
-				warp "prontera",273,354;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 				break;
 			case 1:
-				savepoint "morocc",160,94,1,1;
-				warp "morocc",160,94;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 				break;
 			case 2:
-				savepoint "geffen",120,100,1,1;
-				warp "geffen",120,100;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 				break;
 			case 3:
-				savepoint "payon",70,100,1,1;
-				warp "payon",70,100;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 				break;
 			case 4:
-				savepoint "alberta",116,57,1,1;
-				warp "alberta",116,57;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 				break;
 			case 5:
-				savepoint "izlude",94,103,1,1;
-				warp "izlude",94,103;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 			}
 			end;
 		case 3:
@@ -1367,7 +1367,7 @@ new_1-2,118,108,3	script	Kafra Employee#nv1	117,{
 			set nov_3_magician,0;
 			set nov_3_acolyte,0;
 			set nov_3_merchant,0;
-			savepoint .@mapn$,.@saveX,.@saveY,1,1;
+			savepoint .@mapn$,.@saveX,.@saveY;
 			warp .@mapn$,.@warpX,.@warpY;
 			end;
 		}
@@ -1430,7 +1430,7 @@ new_1-2,118,108,3	script	Kafra Employee#nv1	117,{
 			set nov_3_magician,0;
 			set nov_3_acolyte,0;
 			set nov_3_merchant,0;
-			savepoint .@mapn$,.@saveX,.@saveY,1,1;
+			savepoint .@mapn$,.@saveX,.@saveY;
 			warp .@mapn$,.@warpX,.@warpY;
 			end;
 		}
@@ -2539,7 +2539,7 @@ new_1-2,38,182,3	script	Entrance Guard#nv	92,{
 			getitem 611,2; //Spectacles
 			getitem 569,300; //Novice_Potion
 			close2;
-			savepoint "new_1-2",23,188,1,1;
+			savepoint "new_1-2",23,188;
 			warp "new_1-3",96,21;
 			end;
 		case 2:
@@ -3355,7 +3355,7 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					mes "'Phracon' is an ore which can be used to upgrade lvl 1 weapons. To strengthen your Falchion with this Phracon, please visit a forge in one of the towns.";
 					next;
 					mes "[Hanson]";
-					mes "The town you will be sent to is called Izlude which is a satellite of Prontera. The Swordman Association is located in the West of town. Please remember this.";
+					mes "The town you will be sent to is called Prontera. The Job Changer is located due west of the Prontera Circle. Please remember this.";
 					next;
 					mes "[Hanson]";
 					mes "You will now";
@@ -3372,8 +3372,8 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					set nov_3_magician,0;
 					set nov_3_acolyte,0;
 					set nov_3_merchant,0;
-					savepoint "izlude",93,104,1,1;
-					warp "izlude_in",74,167;
+					savepoint "prontera",156,191;
+					warp "prontera",156,191;
 					end;
 				case 2:
 					callsub S_UserJobchoice,"Swordsman";
@@ -3429,8 +3429,7 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					mes "'Phracon' is an ore which can be used to upgrade lvl 1 weapons. To strengthen your Level 1 weapons with this Phracon, please visit a forge in one of the towns.";
 					next;
 					mes "[Hanson]";
-					mes "The town you will arrive is named 'Geffen'.";
-					mes "The mage academy is located in the Northwest part in town. Please remember this.";
+					mes "The town you will arrive is named 'Prontera'. The Job Changer is located due west of the Prontera Circle. Please remember this.";
 					next;
 					mes "[Hanson]";
 					mes "You'll now be teleported.";
@@ -3444,8 +3443,8 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					set nov_3_magician,0;
 					set nov_3_acolyte,0;
 					set nov_3_merchant,0;
-					savepoint "geffen",119,37,1,1;
-					warp "geffen_in",163,98;
+					savepoint "prontera",156,191;
+					warp "prontera",156,191;
 					end;
 				case 2:
 					callsub S_UserJobchoice,"Mage";
@@ -3498,7 +3497,7 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					mes "'Phracon' is an ore which can be used to upgrade lvl 1 weapons. To strengthen your Battle Axe with this Phracon, please visit a forge in one of the towns.";
 					next;
 					mes "[Hanson]";
-					mes "The town you will be sent to is named Alberta. The Merchant Guild is located to the SouthWest within Alberta. Please remember this.";
+					mes "The town you will be sent to is named Prontera. The Job Changer is located due west of the Prontera Circle. Please remember this.";
 					next;
 					mes "[Hanson]";
 					mes "You will now";
@@ -3515,8 +3514,8 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					set nov_3_magician,0;
 					set nov_3_acolyte,0;
 					set nov_3_merchant,0;
-					savepoint "alberta",30,232,1,1;
-					warp "alberta_in",62,44;
+					savepoint "prontera",156,191;
+					warp "prontera",156,191;
 					end;
 				case 2:
 					callsub S_UserJobchoice,"Merchant";
@@ -3574,7 +3573,7 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					mes "'Phracon' is an ore which can be used to upgrade lvl 1 weapons. To strengthen your Main Gauche with this Phracon, please visit a forge in one of the towns.";
 					next;
 					mes "[Hanson]";
-					mes "The town you will be sent to is named Morroc. The Thief Guild is in the first underground floor of the pyramid NorthWest of Morroc. Remember this.";
+					mes "The town you will be sent to is named Prontera. The Job Changer is located due west of the Prontera Circle. Please remember this.";
 					next;
 					mes "[Hanson]";
 					mes "You will now";
@@ -3583,8 +3582,8 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					mes "^A62A2A" + strcharinfo(0) + "^000000";
 					mes "and farewell.";
 					close2;
-					savepoint "morocc",150,99,1,1;
-					warp "moc_ruins",155,44;
+					savepoint "prontera",156,191;
+					warp "prontera",156,191;
 					end;
 				case 2:
 					callsub S_UserJobchoice,"Thief";
@@ -3635,7 +3634,7 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					mes "'Phracon' is an ore which can be used to upgrade lvl 1 weapons. To strengthen your Composite Bow with this Phracon, please visit a forge in one of the towns.";
 					next;
 					mes "[Hanson]";
-					mes "The town you will be sent to is named Payon. The Archer Guild is located to the NorthWest in town. Please remember this.";
+					mes "The town you will be sent to is named Prontera. The Job Changer is located due west of the Prontera Circle. Please remember this.";
 					next;
 					mes "[Hanson]";
 					mes "You will now";
@@ -3652,8 +3651,8 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					set nov_3_magician,0;
 					set nov_3_acolyte,0;
 					set nov_3_merchant,0;
-					savepoint "payon",70,100,1,1;
-					warp "payon_in02",64,65;
+					savepoint "prontera",156,191;
+					warp "prontera",156,191;
 					end;
 				case 2:
 					callsub S_UserJobchoice,"Archer";
@@ -3707,7 +3706,7 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					mes "'Phracon' is an ore which can be used to upgrade lvl 1 weapons. To strengthen your Mace with this Phracon, please visit a forge in one of the towns.";
 					next;
 					mes "[Hanson]";
-					mes "You have chosen to be an Acolyte. The town you will be sent to is named Prontera. The Sanctuary is NorthEast in Prontera. Please remember this.";
+					mes "You have chosen to be an Acolyte. The town you will be sent to is named Prontera. The Job Changer is located due west of the Prontera Circle. Please remember this.";
 					next;
 					mes "[Hanson]";
 					mes "You will now";
@@ -3724,8 +3723,8 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 					set nov_3_magician,0;
 					set nov_3_acolyte,0;
 					set nov_3_merchant,0;
-					savepoint "prontera",117,72,1,1;
-					warp "prt_church",172,19;
+					savepoint "prontera",156,191;
+					warp "prontera",156,191;
 					end;
 				case 2:
 					callsub S_UserJobchoice,"Acolyte";
@@ -3761,28 +3760,28 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 			set nov_3_merchant,0;
 			set .@startmap,rand(1,6);
 			if ((.@startmap > 0) && (.@startmap < 2)) {
-				savepoint "prontera",117,72,1,1;
-				warp "prt_fild08",170,371;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 			}
 			else if ((.@startmap > 1) && (.@startmap < 3)) {
-				savepoint "geffen",119,37,1,1;
-				warp "gef_fild07",327,188;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 			}
 			else if ((.@startmap > 2) && (.@startmap < 4)) {
-				savepoint "alberta",30,232,1,1;
-				warp "pay_fild03",388,70;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 			}
 			else if ((.@startmap > 3) && (.@startmap < 5)) {
-				savepoint "morocc",150,99,1,1;
-				warp "moc_fild07",198,39;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 			}
 			else if ((.@startmap > 4) && (.@startmap < 6)) {
-				savepoint "payon",256,242,1,1;
-				warp "pay_fild01",334,354;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 			}
 			else if ((.@startmap > 5) && (.@startmap < 7)) {
-				savepoint "izlude",93,104,1,1;
-				warp "prt_fild08",357,212;
+				savepoint "prontera",156,191;
+				warp "prontera",156,191;
 			}
 			end;
 		}
@@ -3812,28 +3811,28 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 		set nov_3_merchant,0;
 		set .@startmap,rand(1,6);
 		if ((.@startmap > 0) && (.@startmap < 2)) {
-			savepoint "prontera",117,72,1,1;
-			warp "prt_fild08",170,371;
+			savepoint "prontera",156,191;
+			warp "prontera",156,191;
 		}
 		else if ((.@startmap > 1) && (.@startmap < 3)) {
-			savepoint "geffen",119,37,1,1;
-			warp "gef_fild07",327,188;
+			savepoint "prontera",156,191;
+			warp "prontera",156,191;
 		}
 		else if ((.@startmap > 2) && (.@startmap < 4)) {
-			savepoint "alberta",30,232,1,1;
-			warp "pay_fild03",388,70;
+			savepoint "prontera",156,191;
+			warp "prontera",156,191;
 		}
 		else if ((.@startmap > 3) && (.@startmap < 5)) {
-			savepoint "morocc",150,99,1,1;
-			warp "moc_fild07",198,39;
+			savepoint "prontera",156,191;
+			warp "prontera",156,191;
 		}
 		else if ((.@startmap > 4) && (.@startmap < 6)) {
-			savepoint "payon",70,100,1,1;
-			warp "pay_fild01",334,354;
+			savepoint "prontera",156,191;
+			warp "prontera",156,191;
 		}
 		else if ((.@startmap > 5) && (.@startmap < 7)) {
-			savepoint "izlude",93,104,1,1;
-			warp "prt_fild08",357,212;
+			savepoint "prontera",156,191;
+			warp "prontera",156,191;
 		}
 		end;
 	}
@@ -3871,39 +3870,42 @@ S_UserJobchoice:
 	if (@menu == 1) {
 		mes "to become a Swordsman.";
 		mes "You will be sent to";
-		mes "the town of Izlude.";
+		mes "the town of Prontera.";
 		next;
 		mes "[Hanson]";
-		mes "The Swordman Association is located to the Northwest in Izlude. Please remember this.";
+		mes "The Job Changer is located due west of the Prontera Circle. Please remember this.";
 	}
 	else if (@menu == 2) {
 		mes "to become a Mage.";
 		mes "You will be sent to";
-		mes "the town of Geffen.";
+		mes "the town of Prontera.";
 		next;
 		mes "[Hanson]";
-		mes "The Mage Academy is located in the NorthWest in town. Please remember this.";
+		mes "The Job Changer is located due west of the Prontera Circle. Please remember this.";
 	}
 	else if (@menu == 3) {					
 		mes "to become a Merchant.";
 		mes "You will be sent to";
-		mes "the town of Alberta.";
+		mes "the town of Prontera.";
+		next;
+		mes "[Hanson]";
+		mes "The Job Changer is located due west of the Prontera Circle. Please remember this.";
 	}
 	else if (@menu == 4) {
 		mes "to become a Thief.";
 		mes "You will be sent to";
-		mes "the town of Morroc.";
+		mes "the town of Prontera.";
 		next;
 		mes "[Hanson]";
-		mes "The Thief guild is in the underground 1st floor of a pyramid which is NorthWest of town. Please remember this.";
+		mes "The Job Changer is located due west of the Prontera Circle. Please remember this.";
 	}
 	else if (@menu == 5) {
 		mes "to become an Archer.";
 		mes "You will be sent to";
-		mes "the town of Payon.";
+		mes "the town of Prontera.";
 		next;
 		mes "[Hanson]";
-		mes "The Archer Guild is located to the NorthWest in Payon. Please remember this.";
+		mes "The Job Changer is located due west of the Prontera Circle. Please remember this.";
 	}
 	else {
 		mes "to become an Acolyte.";
@@ -3911,7 +3913,7 @@ S_UserJobchoice:
 		mes "the town of Prontera.";
 		next;
 		mes "[Hanson]";
-		mes "The Prontera Sanctuary is located to the NorthEast in Prontera. Please remember this.";
+		mes "The Job Changer is located due west of the Prontera Circle. Please remember this.";
 	}
 	next;
 	mes "[Hanson]";
@@ -3959,28 +3961,28 @@ S_UserJobchoice:
 	set nov_3_acolyte,0;
 	set nov_3_merchant,0;
 	if(@menu == 1) {
-		savepoint "izlude",93,104,1,1;
-		warp "izlude_in",74,167;
+		savepoint "prontera",156,191;
+		warp "prontera",156,191;
 	}
 	else if (@menu == 2) {
-		savepoint "geffen",119,37,1,1;
-		warp "geffen_in",163,98;
+		savepoint "prontera",156,191;
+		warp "prontera",156,191;
 	}
 	else if (@menu == 3) {
-		savepoint "alberta",30,232,1,1;
-		warp "alberta_in",62,44;
+		savepoint "prontera",156,191;
+		warp "prontera",156,191;
 	}
 	else if (@menu == 4) {
-		savepoint "morocc",150,99,1,1;
-		warp "moc_ruins",155,44;
+		savepoint "prontera",156,191;
+		warp "prontera",156,191;
 	}
 	else if (@menu == 5) {
-		savepoint "payon",70,100,1,1;
-		warp "payon_in02",64,65;
+		savepoint "prontera",156,191;
+		warp "prontera",156,191;
 	}
 	else {
-		savepoint "prontera",117,72,1,1;
-		warp "prt_church",172,19;
+		savepoint "prontera",156,191;
+		warp "prontera",156,191;
 	}
 	return;
 }
@@ -4275,31 +4277,31 @@ new_1-4,91,22,4	script	Bruce#nv	57,{
 }
 
 // Training Ground Mobs
-new_1-3,0,0	monster	Poring	1002,10
-new_1-3,0,0	monster	Drops	1113,10
-new_1-3,0,0	monster	Lunatic	1063,10
-new_1-3,0,0	monster	ChonChon	1011,10
-new_2-3,0,0	monster	Condor	1009,10
-new_2-3,0,0	monster	Picky	1050,10
-new_2-3,0,0	monster	Willow	1010,10
-new_2-3,0,0	monster	Roda Frog	1012,10
-new_3-3,0,0	monster	Condor	1009,10
-new_3-3,0,0	monster	Picky	1050,10
-new_3-3,0,0	monster	Willow	1010,10
-new_3-3,0,0	monster	Roda Frog	1012,10
-new_4-3,0,0	monster	Rocker	1052,10
-new_4-3,0,0	monster	Thief Bug	1051,10
-new_4-3,0,0	monster	Thief Bug	1053,10
-new_4-3,0,0	monster	Spore	1014,10
-new_5-3,0,0	monster	Rocker	1052,10
-new_5-3,0,0	monster	Thief Bug	1051,1
-new_5-3,0,0	monster	Thief Bug	1053,1
-new_5-3,0,0	monster	Spore	1014,1
-new_1-3,0,0	monster	Fabre	1184,5
-new_2-3,0,0	monster	Fabre	1184,5
-new_3-3,0,0	monster	Fabre	1184,5
-new_4-3,0,0	monster	Fabre	1184,5
-new_5-3,0,0	monster	Fabre	1184,5
+new_1-3,0,0,0,0	monster	Poring	1002,10,0,0,0
+new_1-3,0,0,0,0	monster	Drops	1113,10,0,0,0
+new_1-3,0,0,0,0	monster	Lunatic	1063,10,0,0,0
+new_1-3,0,0,0,0	monster	ChonChon	1011,10,0,0,0
+new_2-3,0,0,0,0	monster	Condor	1009,10,0,0,0
+new_2-3,0,0,0,0	monster	Picky	1050,10,0,0,0
+new_2-3,0,0,0,0	monster	Willow	1010,10,0,0,0
+new_2-3,0,0,0,0	monster	Roda Frog	1012,10,0,0,0
+new_3-3,0,0,0,0	monster	Condor	1009,10,0,0,0
+new_3-3,0,0,0,0	monster	Picky	1050,10,0,0,0
+new_3-3,0,0,0,0	monster	Willow	1010,10,0,0,0
+new_3-3,0,0,0,0	monster	Roda Frog	1012,10,0,0,0
+new_4-3,0,0,0,0	monster	Rocker	1052,10,0,0,0
+new_4-3,0,0,0,0	monster	Thief Bug	1051,10,0,0,0
+new_4-3,0,0,0,0	monster	Thief Bug	1053,10,0,0,0
+new_4-3,0,0,0,0	monster	Spore	1014,10,0,0,0
+new_5-3,0,0,0,0	monster	Rocker	1052,10,0,0,0
+new_5-3,0,0,0,0	monster	Thief Bug	1051,1,0,0,0
+new_5-3,0,0,0,0	monster	Thief Bug	1053,1,0,0,0
+new_5-3,0,0,0,0	monster	Spore	1014,1,0,0,0
+new_1-3,0,0,0,0	monster	Fabre	1184,5,0,0,0
+new_2-3,0,0,0,0	monster	Fabre	1184,5,0,0,0
+new_3-3,0,0,0,0	monster	Fabre	1184,5,0,0,0
+new_4-3,0,0,0,0	monster	Fabre	1184,5,0,0,0
+new_5-3,0,0,0,0	monster	Fabre	1184,5,0,0,0
 
 //============================================================ 
 // Old changelog

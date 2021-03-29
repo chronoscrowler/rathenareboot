@@ -354,3 +354,5 @@ spl_in02	mapflag	nobranch
 2012rwc_08	mapflag	nobranch
 
 //evt_zombie	mapflag	nobranch
+1@dth3	mapflag	nobranch
+tur_dun06	mapflag	nobranch

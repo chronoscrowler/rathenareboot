@@ -1006,6 +1006,23 @@ Body:
     IntimacyFed: 10
     CaptureRate: 2000
     SpecialPerformance: false
+    AllowAutoFeed: true
+    Script: >
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      
+      if( .@i >= PET_INTIMATE_LOYAL ){
+        bonus bAspdRate,3;
+        bonus bAgi,3;
+      }else if( .@i >= PET_INTIMATE_CORDIAL ){
+        bonus bAspdRate,2;
+        bonus bAgi,2;
+      }else if( .@i >= PET_INTIMATE_NEUTRAL ){
+        bonus bAspdRate,2;
+        bonus bAgi,1;
+      }else{
+        bonus bAspdRate,1;
+      }
+    
   - Mob: IMP
     TameItem: Flaming_Ice
     EggItem: Imp_Egg

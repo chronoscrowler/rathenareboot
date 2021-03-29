@@ -3,7 +3,7 @@
 //===== By: ================================================== 
 //= Nova with the help of Tokei, Diablo and others.
 //===== Current Version: ===================================== 
-//= 1.0
+//= 2.0 - ChronosCrowler
 //===== Compatible With: ===================================== 
 //= rAthena Project
 //===== Description: ========================================= 
@@ -12,6 +12,8 @@
 //===== Additional Comments: ================================= 
 //= 1.0 First version. Converted to rAthena compliant standard.
 //=		Thanks to Nova, Tokei, Diablo and others for creating the script. [MasterOfMuppets]
+//= 2.0 Second version. Rebuilt from scratch by ChronosCrowler.
+//=		Added timer/regulator for whole event and source code for instance mobs rebalanced by Jeff Saber
 //============================================================ 
 
 //MAIN QUEST
@@ -39,6 +41,7 @@ OnInit:
 	end;
 OnInstanceInit:
 	hideonnpc instance_npcname(strnpcinfo(0));
+	disablenpc instance_npcname(".#3dtct");
 	end;
 }
 
@@ -242,7 +245,36 @@ OnInstanceInit:
 1@gef,193,152,4	shop	Pet Groomer#GMT	124,537:-1,643:-1,10013:-1,10014:-1,6113:-1,6114:-1,6115:-1,6110:-1,6100:-1,6098:-1,6112:-1,6104:-1,6108:-1,6111:-1,7824:1000,6097:1000,6107:1000
 1@gef,196,111,3	shop	Cook#gef_0et	85,7482:-1
 
-1@gef,131,58,4	script	Geffen Coin Operator#g	4_F_ZONDAGIRL,{ // 55149
+1@gef,133,56,4	script	Geffen Coin Transmuter	4_m_birman,{
+if (countitem(6671) == 30000){
+mes "[ Geffen Coin Transmuter ]";
+mes "Do you want to Transmute your Tournament Coins into raw power?";
+menu "Yes",gefabyss,"No",exit;
+}
+else {
+mes "[ Geffen Coin Transmuter ]";
+mes "Try obtaining 30000 Geffen Magic Tournament Coins first, then talk to me again.";
+close;
+end;
+}
+
+exit:
+next;
+mes "[ Geffen Coin Transmuter ]";
+mes "Alright.";
+close;
+end;
+
+gefabyss:
+next;
+mes "You now have immense power.";
+close2;
+delitem 6671,30000;
+getitem 40212,1;
+end;
+}
+
+1@gef,131,58,4	script	Geffen Coin Operator#g	4_m_birman,{ // 55149
 	.@n$ = "[ Geffen Coin Operator ]";
 	mes .@n$,"I exchange Magic Tournament Coins for Equipment."; next;
 	goto L_Menu;
@@ -611,8 +643,9 @@ OnTouch_:
 }
 
 
-dali,100,147,3	script	Dimensional Device#gefma	PORTAL,{
-	.@n$ = "[ Dimensional Device ]";
+prontera,186,251,2	script	Carriage to Geffen#gefma	4_xmas_cat1,{
+
+	.@n$ = "[ Carriage to Geffen ]";
 			
 		.@ins_geffen_time = checkquest(9316,PLAYTIME);
 		
@@ -637,11 +670,11 @@ dali,100,147,3	script	Dimensional Device#gefma	PORTAL,{
 				end;
 			}
 				
-			switch(select("Leave it alone:^3355FFUse the Device^000000")){
+			switch(select("Ride Later:^3355FFGo to Geffen^000000")){
 			
 				case 1:
 					mes .@n$;
-					mes "You can feel time being distorted by the device.";
+					mes "It's a simple wagon to take you to Geffen.";
 					end;
 					
 				case 2:
@@ -661,8 +694,8 @@ dali,100,147,3	script	Dimensional Device#gefma	PORTAL,{
 								mes "Only registered members can enter the "+.@md_name$+" instance.";
 								end;
 							case 0:
-								mapannounce "dali02",strcharinfo(0)+" of the party, "+.@p_name$+" is entering the "+.@md_name$+".",bc_map,"0x00ff99";
-								GeffenTournament = gettimetick(2) + 82800;
+								mapannounce "prontera",strcharinfo(0)+" of the party, "+.@p_name$+" is entering the "+.@md_name$+".",bc_map,"0x00ff99";
+								GeffenTournament = gettimetick(2) + 7200;
 								if(.@ins_geffen_time != -1) erasequest 9316;
 								setquest 9316;
 								end;
@@ -671,17 +704,41 @@ dali,100,147,3	script	Dimensional Device#gefma	PORTAL,{
 			}
 		} else if ( GeffenTournament > gettimetick(2) ) {
 			mes .@n$;
-			mes "Looks like the window of opportunity is not open right now.";
+			mes "Looks like the passage to the tournament is not open right now.";
 			end;
 		}
 		end;
-
 }
 
+-	script	GMTActive	-1,{
+OnInit:
+if (gettime(5) == 1){
+enablenpc "Carriage to Geffen#gefma";
+enablenpc "Emmitt White";
+end;
+}
+else {
+disablenpc "Carriage to Geffen#gefma";
+disablenpc "Emmitt White";
+end;
+}
 
+OnClock0000:
+if (gettime(5) == 1){
+enablenpc "Carriage to Geffen#gefma";
+enablenpc "Emmitt White";
+end;
+}
+else {
+disablenpc "Carriage to Geffen#gefma";
+disablenpc "Emmitt White";
+end;
+}
+}
 
-dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
-	.@n$ = "[ Time Travel Researcher ]";
+prontera,176,248,3	script	Emmitt White	4_M_KHKYEL,{
+
+	.@n$ = "[ Geffen Tournament Manager ]";
 	
 		if (BaseLevel < 90) {
 			mes .@n$; 
@@ -695,7 +752,7 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 		"Did you find out anything interesting?";
 		next;
 		mes .@n$,
-		"You give details of your experience to the researcher.";
+		"You give details of your experience to the manager.";
 		next;
 		mes .@n$,
 		"You didn't really give me any information that I didn't already know...";
@@ -711,7 +768,7 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 						erasequest .@i;
 					}
 				}
-				
+		if (checkquest(9315) != -1)
 			changequest 9315,9316;
 	}
 	
@@ -730,7 +787,7 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 						erasequest .@i;
 					}
 				}
-				
+		if (checkquest(9315) != -1)
 			changequest 9315,9316;
 	}
 	
@@ -759,26 +816,26 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 			
 		if (is_party_leader() == true){
 			mes .@n$; 
-			mes "Did you know? A long time ago there was a Magic Tournament in Geffen.";
+			mes "Did you know? In this server by Schicksal, the Geffen Magic Tournament exist.";
 			next;
 			mes .@n$; 
-			mes "I've done so much research on the Tournament but haven't gotten too much information from research alone.";
+			mes "You can participate in the Tournament once a month to gain prizes and a";
 			next;
 			mes .@n$; 
-			mes "When I found out that this time gap can help with my research I couldn't resist the opportunity to continue the research.";
+			mes "special condition if you win to advance your powers further.";
 			next;
 			mes .@n$; 
-			mes "And now I've found an adventurer, in you, who can help me go back to the time that the Tournament took place.";
+			mes "With that said, are you willing to participate in Geffen's Monthly Festivities?";
 			next;
 			mes .@n$; 
-			mes "Please use the dimensional device and participate in the Magic Tournament for me.";
+			mes "The Carriage behind me will take you and other participants to the Tournament.";
 			next;
 			mes .@n$; 
 			mes "Will you go and tell me about it?";
 			next;
 			mes .@n$; 
-			mes "The portal is unstable so you have to go solo.";
-			mes "Are you ready to enter?";
+			mes "It's a single entry tournament, so you have to have a party with you as";
+			mes "the only member, Are you ready to participate?";
 			next;
 				switch(select("No:Yes")){
 					case 1:
@@ -799,7 +856,7 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 							end;
 						}
 						mes .@n$; 
-						mes "The Dimensional Device has been activated.";
+						mes "Registration Complete, you may board the carriage.";
 						end;
 					}
 			end;
@@ -864,7 +921,7 @@ OnEnable:
 	end;
 	
 OnTouch_:
-	instance_warpall "dali",92,142;
+	instance_warpall "prontera",152,182;
 	end;
 
 OnInstanceInit:
@@ -926,19 +983,51 @@ OnEnable:
 
 	if ( checkquest(9309) != -1 ) {
 		mes .@n$;
-		mes "Fenrir won this year's Magic Tournament!";
+		mes "Fenris Fenrir won the Magic Tournament this year!";
+		mes "I am such a big fan of hers~";
 		next;
 		mes .@n$;
-		mes "I'm such a big fan of hers.";
+		mes "Do you want to go back to Prontera?";
+		mes "I can take you back.";
+		next;
+		switch(select("No:Yes")){
+			case 1:
+				mes .@n$;
+				mes "Come back if you change your mind.";
+				close;
+			case 2:
+				mes .@n$;
+				mes "Great, I'll send you there now!";
+				mes "See you next time!";
+				warp "prontera",144,189;
+		}
 		end;
 	}
 	
 	if ( checkquest(9308) != -1 ) {
 		mes .@n$;
 		mes "Congratulations on being this year's Magic Tournament winner!";
+		mes "I hope we see you again next year~";
+		next;
+		mes .@n$;
+		mes "Do you want to go back to Prontera?";
+		mes "I can take you back.";
+		next;
+		switch(select("No:Yes")){
+			case 1:
+				mes .@n$;
+				mes "Come back if you change your mind.";
+				close;
+			case 2:
+				mes .@n$;
+				mes "Great, I'll send you there now!";
+				mes "See you next time!";
+				warp "prontera",144,189;
+		}
 		end;
 	}
-		
+
+	
 	if ( 'passtest == 2 ) {
 		mes .@n$;
 		mes "Do you wish to try again?";
@@ -1178,8 +1267,8 @@ OnFail:
 1@ge_st,91,63,6	duplicate(#d_c)	Tournament Spectator#110	4_F_THAIAYO
 1@ge_st,89,38,8	duplicate(#d_c)	Tournament Spectator#111	4_M_ALCHE_E
 1@ge_st,89,39,8	duplicate(#d_c)	Tournament Spectator#112	4_M_ARUNA_NFM1
-1@ge_st,89,40,8	duplicate(#d_c)	Tournament Spectator#113	4_F_JPN2
-1@ge_st,89,41,8	duplicate(#d_c)	Tournament Spectator#114	4_F_JPN
+1@ge_st,89,40,8	duplicate(#d_c)	Tournament Spectator#113	4_f_jp_cynthia
+1@ge_st,89,41,8	duplicate(#d_c)	Tournament Spectator#114	4_f_jp14thevt
 1@ge_st,89,42,8	duplicate(#d_c)	Tournament Spectator#115	4_F_JPNCHIBI
 1@ge_st,89,43,8	duplicate(#d_c)	Tournament Spectator#116	4_F_HUGRANMA
 1@ge_st,89,44,8	duplicate(#d_c)	Tournament Spectator#117	4_F_JPNOBA2
@@ -1339,6 +1428,7 @@ OnFail:
 1@gef,128,93,4	duplicate(#d_c)	Geffen Villager#c1	4_F_CAVE1
 1@gef,103,100,6	duplicate(#d_c)	Geffen Villager#c2	1_M_JOBGUIDER
 
+					
 // ===================================================================================
 // Tournament Start - CHINESE TOURNAMENT ARENA START
 // ===================================================================================
@@ -1380,7 +1470,8 @@ OnTouch_:
 		cutin "acamaster_a.bmp", 255;
 		hideonnpc "Geffen Academy Master";
 		'GMT_1QUE = 11;
-		changequest 9294,9295;
+		if (checkquest(9294) != -1)
+			changequest 9294,9295;
 		donpcevent instance_npcname("Geffen Academy Master")+"::OnStart";
 		'charname$ = strcharinfo(0);
 		'sex = Sex;
@@ -1412,8 +1503,8 @@ OnInstanceInit:
 				cutin "acamaster_a.bmp",2;
 				.@n2$ = "[ Geffen Academy Master ]";
 				mes .@n2$,
-				"Congratulations!",
-				"This has been the best pool of",
+				"Congratulations! I have been granted special privileges by",
+				"Schicksal. With that said, this has been the best pool of",
 				"competitors in the history of this",
 				"competition.";
 				next;
@@ -1433,11 +1524,15 @@ OnInstanceInit:
 				mes .@n2$,
 				"Congratulations again.",
 				"I hope you enjoy the rest of the",
-				"Geffen Festivities.";
+				"Geffen Festivities. I'll take you to the master.";
 				close2;
 				cutin "",255;
 				getitem 6671,'reward[getarraysize('reward[0]) - 1];
-				warp instance_mapname("1@gef"), 120,35;
+				if (achievementexists(240066) == 0){
+				achievementcomplete(240066);
+				}
+				enablenpc instance_npcname(".#3dtct");
+				instance_warpall instance_mapname("final_dest"),99,20;
 				end;
 			case 2:
 				end;
@@ -1530,7 +1625,7 @@ OnInstanceInit:
 		}
 
 OnInstanceInit:
-	setarray 'reward,1,2,3,4,5,6,7,8,9,10,15,20,20;
+	setarray 'reward,10,12,15,20,25,30,35,40,45,50,55,100,300;
 	end;
 }
 
@@ -1539,7 +1634,8 @@ end;
 OnStart:
 	if ( 'GMT_1QUE != 11 ){
 		attachrid('gmt_account_id);
-		changequest 9283 + 'GMT_1QUE, 9284 +'GMT_1QUE;
+		if (checkquest(9283 + 'GMT_1QUE) != -1)
+			changequest 9283 + 'GMT_1QUE, 9284 +'GMT_1QUE;
 		detachrid;
 	}
 
@@ -1690,7 +1786,7 @@ OnStart:
 			sleep 3000;
 			npctalk "The darling of this year's tournament!";
 			sleep 3000;
-			npctalk "Rune-Midgard newest star, "+'charname$+"!";
+			npctalk "Rune-Midgarts newest star, "+'charname$+"!";
 			sleep 2000;
 			npctalk "And "+('sex ? "his" : "her")+" opponent~!!!";
 			sleep 2000;
@@ -1702,7 +1798,7 @@ OnStart:
 			sleep 1000;
 			npctalk "Slow as a turtle, fast as a hare!";
 			sleep 3000;
-			npctalk "The maniac of Rune Midgard! Ifodes!";
+			npctalk "The maniac of Rune-Midgarts! Ifodes!";
 			donpcevent instance_npcname("#Talkcontrol")+"::OnRndtalk";
 			end;
 		case 19:
@@ -1740,7 +1836,7 @@ OnStart:
 			sleep 1000;
 			npctalk "And "+('sex ? "his" : "her")+" opponent~!!!";
 			sleep 1000;
-			npctalk "Seductress of Rune Midgard...";
+			npctalk "Seductress of Rune-Midgarts...";
 			sleep 500;
 			donpcevent instance_npcname("Odoric#1")+"::OnActivate";
 			sleep 500;
@@ -1822,7 +1918,7 @@ OnStart:
 			sleep 1000;
 			npctalk "Oh! This match is going to be exciting!",instance_npcname("Chaos#a2");
 			sleep 2000;
-			npctalk "Is there any Wizard stronger in all of Rune-Midgard?!";
+			npctalk "Is there any Wizard stronger in all of Rune-Midgarts?!";
 			sleep 3000;
 			npctalk "The Blue Wizard! Fenris Fenrir~!!";
 			end;
@@ -2529,7 +2625,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "Yahoo!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -2586,7 +2682,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "Time to get ready for my next match.";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -2641,7 +2737,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "Hu hu hu hu hu...";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 }
 
@@ -2693,7 +2789,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "Never show your face in Geffen again!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -2748,7 +2844,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "You should go home~ Bye~!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 }
 
@@ -2805,7 +2901,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "No matter, I'll just prepare for the next match.";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 }
 
@@ -2864,7 +2960,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "I'm ready for the next match!!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 }
 
@@ -2924,7 +3020,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "Ha ha ha ha ha~!!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 }
 
@@ -2978,7 +3074,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "Now, I shall prepare for my next match~!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -3031,7 +3127,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "Wahahaha~!!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -3087,7 +3183,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "I'm so giddy to find out who I'm up against next!~";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -3144,7 +3240,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "I need to get ready for my next match now~";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -3200,7 +3296,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "The real game is battle!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -3268,7 +3364,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "I have just one more match to win!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -3335,7 +3431,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "I will defeat her and win this tournament!";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -3417,7 +3513,8 @@ OnTalk2:
     npctalk "However, next time, I won't lose!";
     sleep2 2000;
     cutin "", 255;
-    changequest 9307,9308;
+	if (checkquest(9307) != -1)
+		changequest 9307,9308;
     warp instance_mapname("1@ge_st"), 109,50;
 	donpcevent instance_npcname("#win")+"::OnEnable";
 	movenpc instance_npcname("#gefmagic_warp02"),120,213;
@@ -3434,7 +3531,7 @@ OnVictory:
 	sleep 3000;
 	npctalk "I have to go... My friends are waiting for me.";
 	sleep 5000;
-	instance_warpall instance_mapname("1@gef"),120,61;
+	instance_warpall instance_mapname("1@gef"),120,61, instance_id();
 	end;
 	
 }
@@ -4200,7 +4297,7 @@ OnTimer1000:
 				mes "[Chaos]", "Yes, you seem strong enough to be in the Tournament."; next;
 				mes "[Chaos]", "Just know that Fenrir plans on joining as well, so it won't be that easy."; next;
 				mes "[Chaos]", "This is my favorite magic buff scroll, so take it as a token of our appreciation.";
-				sc_start4 SC_GEFFEN_MAGIC3, 3600000, 5, 0, 0, 0, 10000, 1;
+				sc_start SC_STRFood,700000,20;
 				atcommand "@effect 220";
 				next;
 				mes "[Chaos]", "It will be useful in the Magic Tournament.", "Let's go Iris~!", "It's going to start soon~!"; next;
@@ -4487,7 +4584,7 @@ OnMobKilled:
 					cutin "ep14_roki01.bmp", 2;
 					mes "[Loki]", "Oh yeah?", "" + strcharinfo(0) + " is going to register?", "That's interesting."; next;
 					mes "[Loki]", "I have a spare magic buff scroll.", "I will give it to you as a present.";
-					sc_start4 SC_GEFFEN_MAGIC2, 3600000, 5, 0, 0, 0, 10000, 1;
+					sc_start SC_STRFood,700000,20;
 					atcommand "@effect 220";
 					next;
 					mes "[Loki]", "I doubt that you can beat Fenrir at the Tournament.", "Her fighting prowess is unmatched."; next;
@@ -4819,6 +4916,38 @@ OnInstanceInit:
 	hideonnpc instance_npcname("Male Adventurer#gef");
 	hideonnpc instance_npcname("Handsome Adventurer#gef");
 	end;
+}
+
+final_dest,99,35,3	script	.#3dtct	111,100,100,{
+if (Class == Job_Star_Gladiator||Job_Soul_Linker||Job_Super_Novice){
+disablenpc instance_npcname("Queen Puddingcess#1");
+disablenpc instance_npcname("Queen Puddingcess#3");
+disablenpc instance_npcname("Queen Puddingcess#4");
+disablenpc instance_npcname("magitourneywarp#ins");
+}
+else if (Class == Job_Gunslinger){
+disablenpc instance_npcname("Queen Puddingcess#1");
+disablenpc instance_npcname("Queen Puddingcess#2");
+disablenpc instance_npcname("Queen Puddingcess#4");
+disablenpc instance_npcname("magitourneywarp#ins");
+}
+else if (Class == Job_Ninja){
+disablenpc instance_npcname("Queen Puddingcess#1");
+disablenpc instance_npcname("Queen Puddingcess#2");
+disablenpc instance_npcname("Queen Puddingcess#3");
+disablenpc instance_npcname("magitourneywarp#ins");
+}
+else {
+disablenpc instance_npcname("Queen Puddingcess#2");
+disablenpc instance_npcname("Queen Puddingcess#3");
+disablenpc instance_npcname("Queen Puddingcess#4");
+end;
+}
+}
+
+final_dest,90,22,3	script	magitourneywarp#ins	45,2,2,{
+instance_warpall instance_mapname("1@gef"),120,61;
+end;
 }
 
 1@gef	mapflag	nowarp

@@ -180,3 +180,7 @@ bossnia_04	mapflag	nowarpto
 2012rwc_06	mapflag	nowarpto
 2012rwc_07	mapflag	nowarpto
 2012rwc_08	mapflag	nowarpto
+
+//
+1@ecl	mapflag	nowarpto
+dicastes01	mapflag	nowarpto

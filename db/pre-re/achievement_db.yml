@@ -1745,7 +1745,6 @@ Body:
     Name: "Acquire the first aura!"
     Condition: " BaseLevel >= 99 "
     Reward:
-      ItemID: 12549
       Script: " specialeffect2 EF_BLESSING; sc_start SC_BLESSING,30000,10; "
       TitleID: 1000
     Score: 50
@@ -1756,7 +1755,6 @@ Body:
     Dependent:
       - Id: 200000
     Reward:
-      ItemID: 5364
       Script: " specialeffect2 EF_BLESSING; sc_start SC_BLESSING,30000,10; "
       TitleID: 1001
     Score: 60
@@ -2681,4 +2679,308 @@ Body:
       ItemID: 644
       Script: " specialeffect2 EF_INCAGILITY; sc_start SC_INCREASEAGI,30000,10; "
       TitleID: 1024
+    Score: 10
+  - ID: 240021
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade a Tier I Weapon into a Tier II Weapon"
+    Score: 10
+  - ID: 240022
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade a Tier II Weapon into a Soul Weapon"
+    Reward:
+      TitleID: 1045
+    Score: 10
+  - ID: 240023
+    Group: "AG_ADVENTURE"
+    Name: "Combine +10 Stat Accessories into a Soul Accessory"
+    Reward:
+      TitleID: 1046
+    Score: 10
+  - ID: 240024
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade a Tier I Headgear into an Advanced Headgear"
+    Reward:
+      TitleID: 1047
+    Score: 10
+  - ID: 240025
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade a Valkyrie Item into a Diabolus Item"
+    Reward:
+      TitleID: 1048
+    Score: 10
+  - ID: 240026
+    Group: "AG_ADVENTURE"
+    Name: "Combine +10 Stat Accessories into a Diabolus Ring"
+    Reward:
+      TitleID: 1049
+    Score: 10
+  - ID: 240027
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade a Quest Lower Headgear into an Aura"
+    Reward:
+      TitleID: 1050
+    Score: 10
+  - ID: 240028
+    Group: "AG_ADVENTURE"
+    Name: "Complete the Schicksal Faction Access Quest"
+    Reward:
+      TitleID: 1051
+    Score: 10
+  - ID: 240029
+    Group: "AG_ADVENTURE"
+    Name: "Complete the Netoria Faction Access Quest"
+    Reward:
+      TitleID: 1052
+    Score: 10
+  - ID: 240030
+    Group: "AG_ADVENTURE"
+    Name: "Complete the Iruna Faction Access Quest"
+    Reward:
+      TitleID: 1053
+    Score: 10
+  - ID: 240031
+    Group: "AG_ADVENTURE"
+    Name: "Obtain ReDGuRL's Eternal Passion"
+    Reward:
+      TitleID: 1054
+    Score: 10
+  - ID: 240032
+    Group: "AG_ADVENTURE"
+    Name: "Obtain Jeff Saber's Unconditional Love"
+    Reward:
+      TitleID: 1055
+    Score: 10
+  - ID: 240033
+    Group: "AG_ADVENTURE"
+    Name: "Obtain Flugel's Artificial Soul"
+    Reward:
+      TitleID: 1056
+    Score: 10
+  - ID: 240034
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade a Tier II Weapon into a Mirror Weapon"
+    Reward:
+      TitleID: 1057
+    Score: 10
+  - ID: 240035
+    Group: "AG_ADVENTURE"
+    Name: "Infuse a Netorian Soul into your Soul Weapon"
+    Reward:
+      TitleID: 1058
+    Score: 10
+  - ID: 240036
+    Group: "AG_ADVENTURE"
+    Name: "Infuse an Irunite Soul into your Soul Weapon"
+    Reward:
+      TitleID: 1059
+    Score: 10
+  - ID: 240037
+    Group: "AG_ADVENTURE"
+    Name: "Infuse a Schicksal Soul into your Soul Weapon"
+    Reward:
+      TitleID: 1060
+    Score: 10
+  - ID: 240038
+    Group: "AG_ADVENTURE"
+    Name: "Overload a Diabolus Robe or Armor"
+    Reward:
+      TitleID: 1061
+    Score: 10
+  - ID: 240039
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade a Tier I Quest Garment into an Advanced Garment"
+    Reward:
+      TitleID: 1062
+    Score: 10
+  - ID: 240040
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade an Advanced Garment into an Ubergarment"
+    Reward:
+      TitleID: 1063
+    Score: 10
+  - ID: 240041
+    Group: "AG_ADVENTURE"
+    Name: "Embed a Celebeam, Crysta, Plugin or Attachment into your Armor"
+    Reward:
+      TitleID: 1064
+    Score: 10
+  - ID: 240042
+    Group: "AG_ADVENTURE"
+    Name: "Exchange Moving Black Material into Sinister Equipment"
+    Reward:
+      TitleID: 1065
+    Score: 10
+  - ID: 240043
+    Group: "AG_ADVENTURE"
+    Name: "Acquire a Netoria Faction Equipment from Jeff Saber"
+    Reward:
+      TitleID: 1066
+    Score: 10
+  - ID: 240044
+    Group: "AG_ADVENTURE"
+    Name: "Acquire a Iruna Faction Equipment from ReDGuRL"
+    Reward:
+      TitleID: 1067
+    Score: 10
+  - ID: 240045
+    Group: "AG_ADVENTURE"
+    Name: "Acquire a Schicksal Faction Equipment from The Chrono Imperator"
+    Reward:
+      TitleID: 1068
+    Score: 10
+  - ID: 240046
+    Group: "AG_ADVENTURE"
+    Name: "Awaken a Netoria Faction Equipment"
+    Reward:
+      TitleID: 1069
+    Score: 10
+  - ID: 240047
+    Group: "AG_ADVENTURE"
+    Name: "Awaken an Iruna Faction Equipment"
+    Reward:
+      TitleID: 1070
+    Score: 10
+  - ID: 240048
+    Group: "AG_ADVENTURE"
+    Name: "Awaken a Schicksal Faction Equipment"
+    Reward:
+      TitleID: 1071
+    Score: 10
+  - ID: 240049
+    Group: "AG_ADVENTURE"
+    Name: "Win a PvP Tournament"
+    Reward:
+      TitleID: 1072
+    Score: 10
+  - ID: 240050
+    Group: "AG_ADVENTURE"
+    Name: "Win Guild of the Month"
+    Reward:
+      TitleID: 1073
+    Score: 10
+  - ID: 240051
+    Group: "AG_ADVENTURE"
+    Name: "Win a Major Event"
+    Reward:
+      TitleID: 1074
+    Score: 10
+  - ID: 240052
+    Group: "AG_ADVENTURE"
+    Name: "Complete the Reboot HoloCrisis Easter Egg Quest Part I"
+    Reward:
+      TitleID: 1075
+    Score: 10
+  - ID: 240053
+    Group: "AG_ADVENTURE"
+    Name: "Complete the Reboot HoloCrisis Easter Egg Quest Part II"
+    Reward:
+      TitleID: 1076
+    Score: 10
+  - ID: 240054
+    Group: "AG_ADVENTURE"
+    Name: "Complete the Reboot HoloCrisis Easter Egg Quest Part III"
+    Reward:
+      TitleID: 1077
+    Score: 10
+  - ID: 240055
+    Group: "AG_ADVENTURE"
+    Name: "Participate in the RebootRO Beta"
+    Reward:
+      TitleID: 1078
+    Score: 10
+  - ID: 240056
+    Group: "AG_ADVENTURE"
+    Name: "Avail of the best deal from Park & Wash"
+    Reward:
+      TitleID: 1079
+    Score: 10
+  - ID: 240057
+    Group: "AG_ADVENTURE"
+    Name: "Become a RebootRO GM Intern"
+    Reward:
+      TitleID: 1080
+    Score: 10
+  - ID: 240058
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade a Geffen Magic Tournament Equipment to its Advanced Form"
+    Reward:
+      TitleID: 1081
+    Score: 10
+  - ID: 240059
+    Group: "AG_ADVENTURE"
+    Name: "Defeat Master Sauro"
+    Reward:
+      TitleID: 1082
+    Score: 10
+  - ID: 240060
+    Group: "AG_ADVENTURE"
+    Name: "Drive off the leader of the Dimensional Invaders"
+    Reward:
+      TitleID: 1083
+    Score: 10
+  - ID: 240061
+    Group: "AG_ADVENTURE"
+    Name: "Complete your Faction's Destiny: Null Instance"
+    Reward:
+      TitleID: 1084
+    Score: 50
+  - ID: 240062
+    Group: "AG_ADVENTURE"
+    Name: "Complete the Destiny: Void Instance"
+    Reward:
+      TitleID: 1085
+    Score: 100
+  - ID: 240063
+    Group: "AG_ADVENTURE"
+    Name: "Locate the Void Source of Absolute Evil"
+    Reward:
+      TitleID: 1086
+    Score: 25
+  - ID: 240064
+    Group: "AG_ADVENTURE"
+    Name: "Go to Pekoland"
+    Reward:
+      TitleID: 1087
+    Score: 10
+  - ID: 240065
+    Group: "AG_ADVENTURE"
+    Name: "Win against Watame in Tsunomaki Janken"
+    Reward:
+      TitleID: 1088
+    Score: 10
+  - ID: 240066
+    Group: "AG_ADVENTURE"
+    Name: "Clear Geffen Magic Tournament"
+    Reward:
+      TitleID: 1089
+    Score: 10
+  - ID: 240067
+    Group: "AG_ADVENTURE"
+    Name: "Complete the RebootRO Tutorial"
+    Reward:
+      TitleID: 1090
+    Score: 10
+  - ID: 240068
+    Group: "AG_ADVENTURE"
+    Name: "Chicken out"
+    Reward:
+      TitleID: 1091
+    Score: 10
+  - ID: 240069
+    Group: "AG_ADVENTURE"
+    Name: "Complete Jerald's request"
+    Reward:
+      TitleID: 1092
+    Score: 10
+  - ID: 240070
+    Group: "AG_ADVENTURE"
+    Name: "Complete the Break The Seal Quest"
+    Reward:
+      TitleID: 1093
+    Score: 10
+  - ID: 240071
+    Group: "AG_ADVENTURE"
+    Name: "Upgrade a regular +10 Armor [1] into its [2] Version"
+    Reward:
+      TitleID: 1094
     Score: 10

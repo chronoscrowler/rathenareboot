@@ -125,3 +125,6 @@ schg_dun01	mapflag	gvg_dungeon
 2012rwc_06	mapflag	gvg
 2012rwc_07	mapflag	gvg
 2012rwc_08	mapflag	gvg
+
+//
+bat_a01	mapflag	gvg

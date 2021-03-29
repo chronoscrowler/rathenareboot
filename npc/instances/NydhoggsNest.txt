@@ -19,75 +19,8 @@
 //= 1.5 Instance system rewrite. [Euphy]
 //= 1.6 Added GM management NPCs. [Euphy]
 //============================================================ 
-
 nyd_dun02,100,201,3	script	Yggdrasil Gatekeeper	111,8,8,{
-	if (ins_nyd == 0) {
-		mes "A great stone gate stands before you. The sculpture of a terrible dragon spreads its powerful looking wings.";
-		next;
-		mes "Near the bottom of the gate, Laphine tribeswomen have been turned to stone and now look like they are part of the great door.";
-		next;
-		switch(select("Move closer to look more carefully.:Step back.")) {
-		case 1:
-			specialeffect2 EF_HOLYHIT;
-			pushpc 3,3;
-			if (ep13_1_edq == 14)
-				set ep13_1_edq,15;
-			mes "A mysterious power prevents you from getting too close. It looks like there is something strong beyond the door...";
-			next;
-			mes "Perhaps there's a great hidden secret beyond the gate, beyond expectation.";
-			next;
-			mes "It would be better to go back to camp and inform the others and ask for help.";
-			if (ep13_1_edq != 15) {
-				next;
-				mes "You'll have to obtain the others trust in the expendition camp by working hard.";
-			}
-			set ins_nyd,1;
-			close;
-		case 2:
-			close;
-		}
-	} else if (ins_nyd == 1) {
-		mes "A mysterious power prevents you from getting too close. It looks like there is something strong beyond the door...";
-		next;
-		mes "Perhaps there's a great hidden secret beyond the gate, beyond expectation.";
-		next;
-		mes "It would be better to go back to camp and inform the others and ask for help.";
-		if (ep13_1_edq == 14 || ep13_1_edq == 15) {
-			set ep13_1_edq,15;
-			close;
-		}
-		next;
-		mes "You'll have to obtain the others trust in the expendition camp by working hard.";
-		close;
-	} else if (ins_nyd == 111 || ins_nyd == 112) {
-		specialeffect2 EF_CHANGECOLD;
-		mes "The strange sensation surrounding your body has disappeared";
-		next;
-		mes "When you touch the stone gate, you hear a commanding voice.";
-		next;
-		mes "[??????]";
-		mes "Wingless one... Our promised words...";
-		next;
-		switch(select("'Guardian's spell'!:Take a step back.")) {
-		case 1:
-			mes "[??????]";
-			mes "Promised words... Guardian's spell... proof of their existence.";
-			next;
-			mes "[Yggdrasil Gatekeeper]";
-			mes "In the name of Yggdrasiliad, I will accept you as a servant of the Guardian.";
-			next;
-			specialeffect2 EF_CHANGECOLD;
-			set ins_nyd,200;
-			mes "[Yggdrasil Gatekeeper]";
-			mes "I accept your entrance through the Guardian's gate. You are now considered a faithful servant of the Guardian Nidhoggur.";
-			next;
-			mes "The voice has disappeared, and the dark power is calming down from behind the stone gate.";
-			close;
-		case 2:
-			close;
-		}
-	} else if (ins_nyd == 131 || ins_nyd == 132 || ins_nyd > 199) {
-
+if (ins_nyd < 131) set ins_nyd,131;
 		set .@party_id,getcharid(1);
 		set .@md_name$,"Nidhoggur's Nest";
 
@@ -108,7 +41,7 @@ nyd_dun02,100,201,3	script	Yggdrasil Gatekeeper	111,8,8,{
 				mes "And only 1 representative of you needs to talk to me, so don't annoy me...";
 				close;
 			}
-			if (is_party_leader(.@party_id) == true) {
+			if (getcharid(0) == getpartyleader(.@party_id,2)) {
 				mes "[Yggdrasil Gatekeeper]";
 				mes "The loyal servants of the Guardian... what can I do for you?";
 				next;
@@ -139,7 +72,7 @@ nyd_dun02,100,201,3	script	Yggdrasil Gatekeeper	111,8,8,{
 			goto L_Enter;
 		} else {
 			if (.@ins_nyd_check == 0 || .@ins_nyd_check == 1) {
-				if (ins_nyd2 == 3 || ins_nyd2 == 4) {
+				if ('ins_nyd2 == 3 || 'ins_nyd2 == 4) {
 					mes "[Yggdrasil Gatekeeper]";
 					mes "With the defeat of Nidhoggur's Shadow, the roots of the World Tree Yggdrasil are also affected.";
 					next;
@@ -166,46 +99,28 @@ nyd_dun02,100,201,3	script	Yggdrasil Gatekeeper	111,8,8,{
 					mes "If you would like to enter again, please register with me.";
 					erasequest 3135;
 					erasequest 3136;
-					set ins_nyd2,0;
+					set 'ins_nyd2,0;
 					close;
 				}
 			}
 		}
 		close;
-	} else {
-		mes "A great stone gate stands before you. The sculpture of a terrible dragon spreads its powerful looking wings.";
-		next;
-		mes "Near the bottom of the gate, Laphine tribeswomen have been turned to stone and now look like they are part of the great door.";
-		next;
-		switch(select("Move closer to look more carefully.:Step back.")) {
-		case 1:
-			specialeffect2 EF_HOLYHIT;
-			pushpc 3,3;
-			mes "A mysterious power prevents you from getting too close. It looks like there is something strong beyond the door...";
-			next;
-			mes "Perhaps there's a great hidden secret beyond the gate, beyond expectation.";
-			close;
-		case 2:
-			close;
-		}
-	}
-	close;
 
 L_Enter:
 	switch(instance_enter("Nidhoggur's Nest")) {
-	case IE_OTHER:
+	case 3:
 		mes "[Yggdrasil Gatekeeper]";
 		mes "An unknown error has occurred.";
 		close;
-	case IE_NOINSTANCE:
+	case 2:
 		mes "[Yggdrasil Gatekeeper]";
 		mes "You didn't ask to be admitted... You should accept admission first before entering.";
 		close;
-	case IE_NOMEMBER:
+	case 1:
 		mes "[Yggdrasil Gatekeeper]";
 		mes "Where are the other servants, so you can work together? Each servant cannot be admitted here individually...";
 		close;
-	case IE_OK:
+	case 0:
 		mapannounce "nyd_dun02", getpartyname(getcharid(1))+"'s party member "+strcharinfo(0)+" has entered Nidhoggur's Nest.",bc_map,"0x00ff99";
 		if (checkquest(3135) == -1) setquest 3135;
 		if (checkquest(3136) == -1) setquest 3136;
@@ -1034,10 +949,7 @@ spl_in01,104,56,3	script	Aide Arioss#edq	437,3,3,{
 			next;
 			mes "[Aide Arioss]";
 			mes "It can't compare with the effort you have put in for us... but please accept our token of friendship.";
-			if (checkre(3))
-				getexp 1500000,350000;
-			else
-				getexp 150000,35000;
+			getexp 1500000,350000;
 			getitem 6081,10; //Splendide_Coin
 			set ins_nyd,131;
 			mes "[Aide Arioss]";
@@ -1273,10 +1185,7 @@ man_in01,311,57,3	script	Neat Etorr#edq	453,3,3,{
 			next;
 			mes "[Neat Etorr]";
 			mes "It's not a lot, but please this as a token of our appreciation.";
-			if (checkre(3))
-				getexp 1500000,350000;
-			else
-				getexp 150000,35000;
+			getexp 1500000,350000;
 			getitem 6080,10; //Manuk_Coin
 			set ins_nyd,132;
 			close;
@@ -1597,7 +1506,7 @@ OnTouch_:
 		mes "I thank you deeply for your decision. I will use what is left of my powers to open up the path towards the Guardian's Nest.";
 		next;
 		mes "[World Tree Yggdrasil]";
-		if (is_party_leader() == true) {
+		if (getcharid(0) == getpartyleader(getcharid(1),2)) {
 			mes "The path to the Guardian's Nest is just past the waterfall by the large World Tree Yggdrasil to the North. The defensive mechanisms of the Sanctuary will start immediately.";
 			next;
 			mes "[World Tree Yggdrasil]";
@@ -1611,7 +1520,7 @@ OnTouch_:
 			next;
 			mes "[World Tree Yggdrasil]";
 			mes "And... Be careful... Be careful of the shadow's power.";
-			'ins_nyd2 = ins_nyd2 = 1;
+			set 'ins_nyd2,1;
 			donpcevent instance_npcname("ins_nyd_1f_timer")+"::OnEnable";
 			donpcevent instance_npcname("nyd_call_mon_1")+"::OnEnable";
 			close;
@@ -1706,7 +1615,7 @@ OnMyMobDead:
 		mapannounce .@map$, "All of Nidhoggur's Guardians have been defeated!",bc_map,"0x00ff99";
 		donpcevent instance_npcname("ins_nyd_1f_timer")+"::OnDisable";
 		donpcevent instance_npcname("nyd_to2f_warp")+"::OnEnable";
-		'ins_nyd2 = ins_nyd2 = 2;
+		set 'ins_nyd2,2;
 	}
 	end;
 }
@@ -1766,7 +1675,7 @@ OnEnable:
 	end;
 
 OnTouch:
-	'ins_nyd2 = ins_nyd2 = 3;
+	set 'ins_nyd2,3;
 	warp instance_mapname("2@nyd"),200,10;
 	end;
 }
@@ -1850,7 +1759,7 @@ OnTouch:
 
 2@nyd,199,268,0	script	nyd_2f_boss_enter	-1,8,8,{
 OnTouch_:
-	if (is_party_leader() == true) {
+	if (getcharid(0) == getpartyleader(getcharid(1),2)) {
 		donpcevent instance_npcname("nyd_2f_boss_enter_call")+"::OnEnable";
 		disablenpc instance_npcname("nyd_2f_boss_enter");
 		end;
@@ -1928,7 +1837,7 @@ OnMyMobDead:
 		donpcevent instance_npcname("nyd_2f_white_c")+"::OnDisable";
 		donpcevent instance_npcname("nyd_2f_yellow_c")+"::OnDisable";
 		donpcevent instance_npcname("nyd_2f_green_c")+"::OnDisable";
-		'ins_nyd2 = ins_nyd2 = 4;
+		set 'ins_nyd2,4;
 		end;
 	}
 	end;
@@ -1979,8 +1888,7 @@ OnTimer180000:
 	next;
 	switch(select("Please let me out.:I want to look around for a while.")) {
 	case 1:
-		'ins_nyd2 = 0;
-		// ins_nyd2 = 0;
+		set 'ins_nyd2,0;
 		set ins_nyd,203;
 		//setquest 3135;
 		warp "nyd_dun02",98,196;
@@ -2160,26 +2068,26 @@ OnTouch:
 2@nyd,1,1,0	script	ins_nyd2_spawn_mobs	-1,{
 OnInstanceInit:
 	set .@map$, instance_mapname("2@nyd");
-	areamonster .@map$,20,12,380,172,"Rhyncho",2020,40,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyRhynDead";
-	areamonster .@map$,20,12,380,172,"Phylla",2021,40,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyPhyDead";
-	areamonster .@map$,20,12,380,172,"Dark Shadow",2023,40,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyDarkshaDead";
-	areamonster .@map$,20,12,380,172,"Dark Pinguicula",2015,40,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyPingDead";
+	areamonster .@map$,200,92,180,80,"Rhyncho",2020,40,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyRhynDead";
+	areamonster .@map$,200,92,180,80,"Phylla",2021,40,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyPhyDead";
+	areamonster .@map$,200,92,180,80,"Dark Shadow",2023,40,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyDarkshaDead";
+	areamonster .@map$,200,92,180,80,"Dark Pinguicula",2015,40,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyPingDead";
 	end;
 
 OnMyRhynDead:
-	areamonster instance_mapname("2@nyd"),20,12,380,172,"Rhyncho",2020,1,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyRhynDead";
+	areamonster instance_mapname("2@nyd"),200,92,180,80,"Rhyncho",2020,1,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyRhynDead";
 	end;
 
 OnMyPhyDead:
-	areamonster instance_mapname("2@nyd"),20,12,380,172,"Phylla",2021,1,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyPhyDead";
+	areamonster instance_mapname("2@nyd"),200,92,180,80,"Phylla",2021,1,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyPhyDead";
 	end;
 
 OnMyDarkshaDead:
-	areamonster instance_mapname("2@nyd"),20,12,380,172,"Dark Shadow",2023,1,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyDarkshaDead";
+	areamonster instance_mapname("2@nyd"),200,92,180,80,"Dark Shadow",2023,1,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyDarkshaDead";
 	end;
 
 OnMyPingDead:
-	areamonster instance_mapname("2@nyd"),20,12,380,172,"Dark Pinguicula",2015,1,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyPingDead";
+	areamonster instance_mapname("2@nyd"),200,92,180,80,"Dark Pinguicula",2015,1,instance_npcname("ins_nyd2_spawn_mobs")+"::OnMyPingDead";
 	end;
 }
 
